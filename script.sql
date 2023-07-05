@@ -1,3 +1,6 @@
+CREATE DATABASE formulario_database_php;
+
+
 CREATE TABLE `formulario_database_php`.`usuarios` (
     `id` INT NOT NULL AUTO_INCREMENT,
     `nome` VARCHAR(50) NOT NULL,
@@ -10,3 +13,6 @@ CREATE TABLE `formulario_database_php`.`usuarios` (
     `endereco` VARCHAR(50) NOT NULL,
     PRIMARY KEY (`id`)
 ) ENGINE = InnoDB;
+
+
+ALTER TABLE `usuarios` CHANGE `sexo` `genero` VARCHAR(15) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL;
