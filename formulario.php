@@ -1,8 +1,19 @@
 <?php
 if (isset($_POST['submit'])) {
-    print_r($_POST['nome']);
-    print_r($_POST['email']);
-    print_r($_POST['telefone']);
+
+    include_once('config.php');
+
+    $nome =  $_POST['nome'];
+    $email =  $_POST['email'];
+    $telefone =  $_POST['telefone'];
+    $genero =  $_POST['genero'];
+    $data_nascimento =  $_POST['data_nascimento'];
+    $cidade =  $_POST['cidade'];
+    $estado =  $_POST['estado'];
+    $endereco =  $_POST['endereco'];
+
+    $result = mysqli_query($conexao, "INSERT INTO usuarios(nome, email, telefone, genero, data_nascimento,cidade,estado,endereco)
+                                       VALUES ('$nome','$email','$telefone','$genero','$data_nascimento','$cidade','$estado','$endereco')");
 }
 ?>
 
