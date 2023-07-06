@@ -12,7 +12,7 @@ if (isset($_POST['submit'])) {
     $estado =  $_POST['estado'];
     $endereco =  $_POST['endereco'];
 
-    $result = mysqli_query($conexao, "INSERT INTO usuarios(nome, email, telefone, genero, data_nascimento,cidade,estado,endereco)
+    $result = mysqli_query($conexao, "INSERT INTO usuarios(nome, email, telefone, genero, data_nasc,cidade,estado,endereco)
                                        VALUES ('$nome','$email','$telefone','$genero','$data_nascimento','$cidade','$estado','$endereco')");
 }
 ?>
