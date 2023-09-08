@@ -8,13 +8,13 @@ if ((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true
     header('Location: login.php');
 }
 $logado = $_SESSION['email'];
-// if (!empty($_GET['search'])) {
-//     $data = $_GET['search'];
-//     $sql = "SELECT * FROM usuarios WHERE id LIKE '%$data%' or nome LIKE '%$data%' or email LIKE '%$data%' ORDER BY id DESC";
-// } else {
-//     $sql = "SELECT * FROM usuarios ORDER BY id DESC";
-// }
-// $result = $conexao->query($sql);
+if (!empty($_GET['search'])) {
+    $data = $_GET['search'];
+    $sql = "SELECT * FROM usuarios WHERE id LIKE '%$data%' or nome LIKE '%$data%' or email LIKE '%$data%' ORDER BY id DESC";
+} else {
+    $sql = "SELECT * FROM usuarios ORDER BY id DESC";
+}
+$result = $conexao->query($sql);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -46,12 +46,63 @@ $logado = $_SESSION['email'];
 </head>
 
 <body>
-
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">SISTEMA DO GN</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+        <div class="d-flex">
+            <a href="sair.php" class="btn btn-danger me-5">Sair</a>
+        </div>
+    </nav>
+    <br>
     <?php
     echo "<h1>Bem vindo <u>$logado</u></h1>";
     ?>
+    <br>
+    <div class="m-5">
+        <table class="table text-white table-bg">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Senha</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Telefone</th>
+                    <th scope="col">Genero</th>
+                    <th scope="col">Data de Nascimento</th>
+                    <th scope="col">Cidade</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Endereço</th>
+                    <th scope="col">...</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                while ($user_data = mysqli_fetch_assoc($result)) {
+                    echo "<tr>";
+                    echo "<td>" . $user_data['id'] . "</td>";
+                    echo "<td>" . $user_data['nome'] . "</td>";
+                    echo "<td>" . $user_data['senha'] . "</td>";
+                    echo "<td>" . $user_data['email'] . "</td>";
+                    echo "<td>" . $user_data['telefone'] . "</td>";
+                    echo "<td>" . $user_data['genero'] . "</td>";
+                    echo "<td>" . $user_data['data_nasc'] . "</td>";
+                    echo "<td>" . $user_data['cidade'] . "</td>";
+                    echo "<td>" . $user_data['estado'] . "</td>";
+                    echo "<td>" . $user_data['endereco'] . "</td>";
+                    echo "<td>
+                       
+                            </td>";
+                    echo "</tr>";
+                }
+                ?>
+            </tbody>
+        </table>
+    </div>
 
 </body>
-
 
 </html>
