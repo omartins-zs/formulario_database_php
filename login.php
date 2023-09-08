@@ -22,6 +22,29 @@
             border-radius: 15px;
             color: #fff;
         }
+
+        input {
+            padding: 15px;
+            border: none;
+            outline: none;
+            font-size: 15px;
+        }
+
+        .inputSubmit {
+            background-color: dodgerblue;
+            border: none;
+            padding: 15px;
+            width: 100%;
+            border-radius: 10px;
+            color: white;
+            font-size: 15px;
+
+        }
+
+        .inputSubmit:hover {
+            background-color: deepskyblue;
+            cursor: pointer;
+        }
     </style>
 </head>
 
