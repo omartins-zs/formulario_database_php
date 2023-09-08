@@ -11,10 +11,10 @@ $logado = $_SESSION['email'];
 
     if (!empty($_GET['search'])) {
         $data = $_GET['search'];
-        echo "Contem akgo, pesquisar";
+        // echo "Contem akgo, pesquisar";
         $sql = "SELECT * FROM usuarios WHERE id LIKE '%$data%' or nome LIKE '%$data%' or email LIKE '%$data%' ORDER BY id DESC";
     } else {
-        echo "Nao temos nada, trazer todos os registros";
+        // echo "Nao temos nada, trazer todos os registros";
         $sql = "SELECT * FROM usuarios ORDER BY id DESC";
     }
 
