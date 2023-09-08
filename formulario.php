@@ -5,6 +5,7 @@ if (isset($_POST['submit'])) {
 
     $nome =  $_POST['nome'];
     $email =  $_POST['email'];
+    $senha =  $_POST['senha'];
     $telefone =  $_POST['telefone'];
     $genero =  $_POST['genero'];
     $data_nascimento =  $_POST['data_nascimento'];
@@ -12,8 +13,10 @@ if (isset($_POST['submit'])) {
     $estado =  $_POST['estado'];
     $endereco =  $_POST['endereco'];
 
-    $result = mysqli_query($conexao, "INSERT INTO usuarios(nome, email, telefone, genero, data_nasc,cidade,estado,endereco)
+    $result = mysqli_query($conexao, "INSERT INTO usuarios(nome,senha, email, telefone, genero, data_nasc,cidade,estado,endereco)
                                        VALUES ('$nome','$email','$telefone','$genero','$data_nascimento','$cidade','$estado','$endereco')");
+
+    header('Location: login.php');
 }
 ?>
 
