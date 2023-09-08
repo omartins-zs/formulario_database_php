@@ -14,7 +14,7 @@ if (isset($_POST['update'])) {
     $endereco = $_POST['endereco'];
 
     $sqlInsert = "UPDATE usuarios
-        SET nome='$nome',senha='$senha',email='$email',telefone='$telefone',sexo='$sexo',data_nasc='$data_nasc',cidade='$cidade',estado='$estado',endereco='$endereco'
+        SET nome='$nome',senha='$senha',email='$email',telefone='$telefone',genero='$sexo',data_nasc='$data_nasc',cidade='$cidade',estado='$estado',endereco='$endereco'
         WHERE id=$id";
     $result = $conexao->query($sqlInsert);
     print_r($result);
