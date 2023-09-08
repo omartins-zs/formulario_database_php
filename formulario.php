@@ -1,25 +1,40 @@
 <?php
 if (isset($_POST['submit'])) {
+    // print_r('Nome: ' . $_POST['nome']);
+    // print_r('<br>');
+    // print_r('Email: ' . $_POST['email']);
+    // print_r('<br>');
+    // print_r('Telefone: ' . $_POST['telefone']);
+    // print_r('<br>');
+    // print_r('Sexo: ' . $_POST['genero']);
+    // print_r('<br>');
+    // print_r('Data de nascimento: ' . $_POST['data_nascimento']);
+    // print_r('<br>');
+    // print_r('Cidade: ' . $_POST['cidade']);
+    // print_r('<br>');
+    // print_r('Estado: ' . $_POST['estado']);
+    // print_r('<br>');
+    // print_r('Endereço: ' . $_POST['endereco']);
 
     include_once('config.php');
 
-    $nome =  $_POST['nome'];
-    $email =  $_POST['email'];
-    $senha =  $_POST['senha'];
-    $telefone =  $_POST['telefone'];
-    $genero =  $_POST['genero'];
-    $data_nascimento =  $_POST['data_nascimento'];
-    $cidade =  $_POST['cidade'];
-    $estado =  $_POST['estado'];
-    $endereco =  $_POST['endereco'];
+    $nome = $_POST['nome'];
+    $email = $_POST['email'];
+    $senha = $_POST['senha'];
+    $telefone = $_POST['telefone'];
+    $sexo = $_POST['genero'];
+    $data_nascimento = $_POST['data_nascimento'];
+    $cidade = $_POST['cidade'];
+    $estado = $_POST['estado'];
+    $endereco = $_POST['endereco'];
 
-    $result = mysqli_query($conexao, "INSERT INTO usuarios(nome,senha, email, telefone, genero, data_nasc,cidade,estado,endereco)
-                                       VALUES ('$nome','$email','$telefone','$genero','$data_nascimento','$cidade','$estado','$endereco')");
+    $result = mysqli_query($conexao, "INSERT INTO usuarios(nome,senha,email,telefone,sexo,data_nasc,cidade,estado,endereco)
+        VALUES ('$nome','$senha','$email','$telefone','$sexo','$data_nascimento','$cidade','$estado','$endereco')");
 
     header('Location: login.php');
 }
-?>
 
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,8 +42,7 @@ if (isset($_POST['submit'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario de Clientes com PHP e BD</title>
-
+    <title>Formulário | GN</title>
     <style>
         body {
             font-family: Arial, Helvetica, sans-serif;
@@ -115,14 +129,20 @@ if (isset($_POST['submit'])) {
 </head>
 
 <body>
+    <a href="home.php">Voltar</a>
     <div class="box">
-        <form action="formulario.php" method="post">
+        <form action="formulario.php" method="POST">
             <fieldset>
-                <legend><b> Formulario de Clientes</b></legend>
+                <legend><b>Fórmulário de Clientes</b></legend>
                 <br>
                 <div class="inputBox">
                     <input type="text" name="nome" id="nome" class="inputUser" required>
-                    <label for="nome" class="labelInput">Nome Completo</label>
+                    <label for="nome" class="labelInput">Nome completo</label>
+                </div>
+                <br>
+                <div class="inputBox">
+                    <input type="password" name="senha" id="senha" class="inputUser" required>
+                    <label for="senha" class="labelInput">Senha</label>
                 </div>
                 <br><br>
                 <div class="inputBox">
@@ -134,21 +154,18 @@ if (isset($_POST['submit'])) {
                     <input type="tel" name="telefone" id="telefone" class="inputUser" required>
                     <label for="telefone" class="labelInput">Telefone</label>
                 </div>
-                <br>
                 <p>Sexo:</p>
-                <input type="radio" name="genero" id="feminino" value="feminino">
+                <input type="radio" id="feminino" name="genero" value="feminino" required>
                 <label for="feminino">Feminino</label>
                 <br>
-                <input type="radio" name="genero" id="masculino" value="masculino">
+                <input type="radio" id="masculino" name="genero" value="masculino" required>
                 <label for="masculino">Masculino</label>
                 <br>
-                <input type="radio" name="outro" id="outro" value="outro">
+                <input type="radio" id="outro" name="genero" value="outro" required>
                 <label for="outro">Outro</label>
                 <br><br>
-
                 <label for="data_nascimento"><b>Data de Nascimento:</b></label>
                 <input type="date" name="data_nascimento" id="data_nascimento" required>
-
                 <br><br><br>
                 <div class="inputBox">
                     <input type="text" name="cidade" id="cidade" class="inputUser" required>
