@@ -16,3 +16,5 @@ CREATE TABLE `formulario_database_php`.`usuarios` (
 
 
 ALTER TABLE `usuarios` CHANGE `sexo` `genero` VARCHAR(15) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL;
+
+ALTER TABLE `usuarios` ADD `senha` VARCHAR(20) NOT NULL AFTER `nome`;
