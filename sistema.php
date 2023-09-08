@@ -1,7 +1,7 @@
 <?php
 session_start();
-// include_once('config.php');
-print_r($_SESSION);
+include_once('config.php');
+// print_r($_SESSION);
 if ((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true)) {
     unset($_SESSION['email']);
     unset($_SESSION['senha']);
@@ -31,11 +31,26 @@ $logado = $_SESSION['email'];
             color: white;
             text-align: center;
         }
+
+        .table-bg {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px 15px 0 0;
+        }
+
+        .box-search {
+            display: flex;
+            justify-content: center;
+            gap: .1%;
+        }
     </style>
 </head>
 
 <body>
-        <h1>Acessou o Sistema</h1>
+
+    <?php
+    echo "<h1>Bem vindo <u>$logado</u></h1>";
+    ?>
+
 </body>
 
 
